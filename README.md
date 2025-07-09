@@ -2,6 +2,7 @@
 
 A prototype for building a Layer 2 logic engine on top of Ethereum Swarm, using WebAssembly (WASM) modules to validate content stored in Swarm’s base layer (DISC — Distributed Immutable Store of Chunks).
 This project demonstrates how logic can be stored on Swarm, loaded dynamically, and executed client-side — enabling a fully decentralized compute model without needing a blockchain for every operation.
+
 ________________________________________
 ✅ What It Does
 
