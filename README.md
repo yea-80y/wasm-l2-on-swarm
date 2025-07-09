@@ -17,21 +17,28 @@ ________________________________________
 🧠 Why This Matters
 
 This is an early step toward a truly decentralized app architecture:
+
 •	Data lives on Swarm (immutable and persistent)
+
 •	Logic lives on Swarm (WASM modules)
+
 •	Validation runs on the client (trustless execution)
+
 •	No centralized backend or blockchain compute required
 ________________________________________
 📦 Project Structure
 
 pgsql
+
 CopyEdit
+
 wasm-l2-on-swarm/
 ├── index.html                # WASM loader and validation UI
 ├── profile.json              # Example profile stored on Swarm
 ├── wasm_validator.js         # JS wrapper (from wasm-pack)
 ├── wasm_validator_bg.wasm    # Compiled WASM module
 └── wasm-validator/           # Rust WASM source code
+
 ________________________________________
 🚀 Run Locally (No Build Tools Needed)
 
@@ -44,15 +51,18 @@ ________________________________________
 🛠 Build the WASM Module (Rust)
 
 1.	Install Rust
+
 2.	Install wasm-pack:
 perl
 CopyEdit
 cargo install wasm-pack
+
 3.	Build the module:
 pgsql
 CopyEdit
 cd wasm-validator
 wasm-pack build --target web
+
 4.	Copy pkg/wasm_validator_bg.wasm and wasm_validator.js to the root directory.
 ________________________________________
 🐝 Uploading to Swarm
@@ -61,19 +71,28 @@ To upload the WASM or profile JSON to your Bee node:
 nginx
 CopyEdit
 curl -X POST ^
+
   -H "Swarm-Postage-Batch-Id: <your-batch-id>" ^
+  
   -H "Content-Type: application/octet-stream" ^
+  
   --data-binary "@wasm_validator_bg.wasm" ^
+  
   http://bee.swarm.public.dappnode:1633/bzz
 ________________________________________
 🔮 What's Next
 
 This project is the first step toward a Swarm-native Layer 2 protocol stack.
 Future plans include:
+
 •	✅ Message board logic (Reddit-style validation of posts/comments)
+
 •	✅ Swarm Feed-based logic versioning
+
 •	✅ Profile creation and moderation rules in WASM
+
 •	✅ Fully autonomous Swarm-hosted applications
+
 This project evolves into a decentralized Reddit, and eventually:
 “The only app we’ll ever need.”
 ________________________________________
