@@ -6,8 +6,11 @@ ________________________________________
 ✅ What It Does
 
 •	Stores profile data (JSON) on Swarm
+
 •	Uploads WASM validator logic to Swarm
+
 •	Runs that logic client-side to validate the data
+
 •	Executes Layer 2 behavior entirely on top of Swarm (DISC)
 ________________________________________
 🧠 Why This Matters
