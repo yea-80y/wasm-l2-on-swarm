@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Swarm Profile Validator</title>
+</head>
+<body>
+  <h1>WASM L2 Validator Test</h1>
+  <div id="output">Loading...</div>
+
+    <script type="module">
+    import init, { validate_profile } from "./wasm_validator.js";
+
+    const beeUrl = "http://bee.swarm.public.dappnode:1633";
+    const profileHash = "22552901f196fc838d7e1110bb15c7ce3f896325983d49527465ac55045f5d44"; // Replace with your real profile.json Swarm hash
+
+    await init(); // this loads the wasm binary automatically
+
+    const profile = await fetch(`${beeUrl}/bzz/${profileHash}`).then(r => r.json());
+    const result = validate_profile(JSON.stringify(profile));
+
+    document.getElementById("output").textContent = result ? "✅ Valid Profile" : "❌ Invalid Profile";
+    </script>
+</body>
+</html>
